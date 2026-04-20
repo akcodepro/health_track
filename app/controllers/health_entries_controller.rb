@@ -2,7 +2,7 @@ class HealthEntriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @health_entries = current_user.health_entries
+    @health_entries = current_user.health_entries.order(date: :desc)
   end
 
   def show
