@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mood: 1
+  energy: 1
+  sleep_hours: 9.99
+  water_litres: 9.99
+  notes: MyText
+  date: 2026-04-20
+  user_id: 1
+
+two:
+  mood: 1
+  energy: 1
+  sleep_hours: 9.99
+  water_litres: 9.99
+  notes: MyText
+  date: 2026-04-20
+  user_id: 1

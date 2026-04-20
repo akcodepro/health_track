@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h1>Update <%= @health_entry.date %></h1>
+  <div class="card mb-2">
+      <div class="card-body">
+        <%= form_with model: @health_entry, local: true do |form| %>
+          <%= form.label :mood, class: "form-label" %>
+          <%= form.number_field :mood, in: 1.0..5.0, step: 0.5, class: "form-control" %>
+
+          <%= form.label :energy, class: "form-label" %>
+          <%= form.number_field :energy, in: 1.0..5.0, step: 0.5, class: "form-control" %>
+
+          <%= form.label :sleep_hours, class: "form-label" %>
+          <%= form.number_field :sleep_hours, in: 0.0..24.0,step: 0.25, class: "form-control" %>
+
+          <%= form.label :water_litres, class: "form-label" %>
+          <%= form.number_field :water_litres, class: "form-control" %>
+
+          <%= form.label :notes, class: "form-label" %>
+          <%= form.text_area :notes, class: "form-control" %>
+
+          <%= form.label :date, class: "form-label" %>
+          <%= form.date_field :date, value: Date.today, class: "form-control" %>
+
+          <%= form.submit "Update", class: "btn btn-primary" %>
+          <% end %>
+      </div>
+    </div>
+</div>

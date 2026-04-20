@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h1><%= @health_entry.date %></h1>
+  <div class="card mb-2">
+    <div class="card-body">
+      <p>Mood: <%= @health_entry.mood %>/5</p>
+      <p>Energy: <%= @health_entry.energy %>/5</p>
+      <p>Sleep: <%= @health_entry.sleep_hours %> hr(s)</p>
+      <p>Water intake: <%= @health_entry.water_litres %> L</p>
+      <p>Notes: <%= @health_entry.notes %></p>
+    </div>
+  </div>
+  <%= link_to "Edit", edit_health_entry_path(@health_entry),  class: "btn btn-secondary mt-3" %>
+  <%= link_to "Delete", @health_entry, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },class: "btn btn-danger mt-3" %>
+  <%= link_to "Home", health_entries_path, class: "btn btn-primary mt-3" %>
+</div>

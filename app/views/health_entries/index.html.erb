@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <h1>HealthEntries</h1>
+  <% @health_entries.each do |entry|  %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <p><%= link_to entry.date, entry %> - Mood: <%= entry.mood %>/5</p>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
+</div>
