@@ -1965,3 +1965,375 @@ Processing by HealthEntriesController#create as TURBO_STREAM
 Completed 422 Unprocessable Content in 20ms (Views: 9.0ms | ActiveRecord: 1.7ms | Allocations: 16174)
 
 
+Started GET "/health_entries/new" for ::1 at 2026-04-21 10:11:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HealthEntriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 3380)
+  Rendered layout layouts/application.html.erb (Duration: 40.4ms | Allocations: 42281)
+Completed 200 OK in 68ms (Views: 42.9ms | ActiveRecord: 1.3ms | Allocations: 67641)
+
+
+Started POST "/health_entries" for ::1 at 2026-04-21 10:11:43 +0200
+Processing by HealthEntriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "health_entry"=>{"mood"=>"2", "energy"=>"1.5", "sleep_hours"=>"0.5", "water_litres"=>"-3", "notes"=>"sofas", "date"=>"2026-04-21"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mHealthEntry Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2676)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3839)
+Completed 422 Unprocessable Content in 23ms (Views: 5.4ms | ActiveRecord: 1.4ms | Allocations: 11834)
+
+
+Started GET "/health_entries/new" for ::1 at 2026-04-21 10:16:52 +0200
+Processing by HealthEntriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1903)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 22128)
+Completed 200 OK in 33ms (Views: 25.1ms | ActiveRecord: 1.2ms | Allocations: 34749)
+
+
+Started GET "/" for ::1 at 2026-04-21 10:17:40 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.8ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.5ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/views/health_entries/index.html.erb:29
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1703)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 2874)
+Completed 200 OK in 38ms (Views: 14.3ms | ActiveRecord: 1.8ms | Allocations: 7323)
+
+
+Started GET "/health_entries/2" for ::1 at 2026-04-21 10:17:48 +0200
+Processing by HealthEntriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.3ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/show.html.erb within layouts/application
+  Rendered health_entries/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 391)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1564)
+Completed 200 OK in 14ms (Views: 4.6ms | ActiveRecord: 0.6ms | Allocations: 4597)
+
+
+Started DELETE "/users/sign_out?_method=delete" for ::1 at 2026-04-21 10:18:13 +0200
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 12ms (ActiveRecord: 0.2ms | Allocations: 3241)
+
+
+Started GET "/" for ::1 at 2026-04-21 10:18:13 +0200
+Processing by HealthEntriesController#index as TURBO_STREAM
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 610)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:18:13 +0200
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/alexkerespars/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/devise-5.0.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/alexkerespars/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/devise-5.0.3/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 562)
+  Rendered /Users/alexkerespars/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/devise-5.0.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2356)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3654)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 5341)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:25:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 572)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3514)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 42430)
+Completed 200 OK in 43ms (Views: 34.8ms | ActiveRecord: 0.9ms | Allocations: 55963)
+
+
+Started POST "/users/sign_in" for ::1 at 2026-04-21 10:25:35 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 694)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2086)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 2582)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:25:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2109)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 2933)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:28:50 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 222)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 491)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 2177)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 22456)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 4.0ms | Allocations: 28139)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:28:50 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1247)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2467)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 3673)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:29:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 538)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1802)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 22077)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 1.2ms | Allocations: 27829)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:29:29 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 538)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1801)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 22078)
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 4.6ms | Allocations: 27803)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:29:53 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 538)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1801)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 22077)
+Completed 200 OK in 21ms (Views: 8.9ms | ActiveRecord: 8.6ms | Allocations: 27811)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:30:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2109)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 2939)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:30:22 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 538)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1801)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 22075)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 1.2ms | Allocations: 27823)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:47:25 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 538)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1864)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 22138)
+Completed 200 OK in 19ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 27197)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:48:18 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 83)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1554)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2778)
+Completed 200 OK in 19ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 3912)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:50:14 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 69)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 918)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2151)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2951)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:50:32 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 490)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1812)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 22112)
+Completed 200 OK in 21ms (Views: 13.4ms | ActiveRecord: 6.3ms | Allocations: 27772)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:50:33 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1289)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2513)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 3730)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:50:34 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 877)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2095)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 2895)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:50:34 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 877)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2096)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 2898)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:50:35 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 920)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2134)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 2959)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:50:36 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 882)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2105)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 2881)
+
+
+Started GET "/users/password/new" for ::1 at 2026-04-21 10:50:36 +0200
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 119)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1142)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2369)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 3460)
+
+
+Started GET "/" for ::1 at 2026-04-21 10:51:04 +0200
+Processing by HealthEntriesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 612)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:51:04 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 920)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2142)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 2998)
+
+
+Started GET "/" for ::1 at 2026-04-21 10:51:05 +0200
+Processing by HealthEntriesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 527)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:51:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 920)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2138)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2982)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:51:11 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 877)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 2096)
+Completed 200 OK in 16ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 2878)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:51:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 920)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2134)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2968)
+
+
+Started GET "/users/sign_up" for ::1 at 2026-04-21 10:51:13 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 877)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2110)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2907)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 10:51:14 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 920)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2139)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 2956)
+
+
