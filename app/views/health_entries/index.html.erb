@@ -1,5 +1,31 @@
 <div class="container mt-4">
   <h1>HealthEntries</h1>
+  <div class="row mb-4">
+  <div class="col-md-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Avg Mood</h5>
+        <p class="card-text fs-3"><%= @avg_mood || "N/A" %>/5</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Avg Energy</h5>
+        <p class="card-text fs-3"><%= @avg_energy || "N/A" %>/5</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Avg Sleep</h5>
+        <p class="card-text fs-3"><%= @avg_sleep || "N/A" %> hrs</p>
+      </div>
+    </div>
+  </div>
+</div>
   <% @health_entries.each do |entry|  %>
     <div class="card mb-2 border-<%= mood_colour(entry.mood) %>">
       <div class="card-body">

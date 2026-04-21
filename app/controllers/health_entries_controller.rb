@@ -3,6 +3,10 @@ class HealthEntriesController < ApplicationController
 
   def index
     @health_entries = current_user.health_entries.order(date: :desc)
+    @last_7 = current_user.health_entries.where(date: 7.days.ago..Date.today)
+    @avg_mood = @last_7.average(:mood)&.round(1)
+    @avg_energy = @last_7.average(:energy)&.round(1)
+    @avg_sleep = @last_7.average(:sleep_hours)&.round(1)
   end
 
   def show
