@@ -2911,3 +2911,386 @@ Processing by HealthEntriesController#index as HTML
 Completed 200 OK in 14ms (Views: 5.1ms | ActiveRecord: 0.6ms | Allocations: 5723)
 
 
+Started GET "/health_entries/5" for ::1 at 2026-04-21 15:07:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HealthEntriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.0ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/show.html.erb within layouts/application
+  Rendered health_entries/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 724)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 43842)
+Completed 200 OK in 59ms (Views: 37.2ms | ActiveRecord: 1.1ms | Allocations: 70265)
+
+
+Started GET "/health_entries" for ::1 at 2026-04-21 15:07:31 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.4ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.2ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.8ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/views/health_entries/index.html.erb:34
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2020)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3188)
+Completed 200 OK in 29ms (Views: 5.5ms | ActiveRecord: 1.9ms | Allocations: 9557)
+
+
+Started GET "/health_entries/6" for ::1 at 2026-04-21 15:07:39 +0200
+Processing by HealthEntriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/show.html.erb within layouts/application
+  Rendered health_entries/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1301)
+Completed 200 OK in 11ms (Views: 3.9ms | ActiveRecord: 0.4ms | Allocations: 3524)
+
+
+Started GET "/health_entries/6/edit" for ::1 at 2026-04-21 15:07:45 +0200
+Processing by HealthEntriesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/edit.html.erb within layouts/application
+  Rendered health_entries/edit.html.erb within layouts/application (Duration: 16.1ms | Allocations: 3011)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 4183)
+Completed 200 OK in 26ms (Views: 19.1ms | ActiveRecord: 0.3ms | Allocations: 6491)
+
+
+Started GET "/health_entries" for ::1 at 2026-04-21 15:07:45 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.0ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/views/health_entries/index.html.erb:34
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 699)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1881)
+Completed 200 OK in 34ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 5742)
+
+
+Started GET "/health_entries/6/edit" for ::1 at 2026-04-21 15:07:46 +0200
+Processing by HealthEntriesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/edit.html.erb within layouts/application
+  Rendered health_entries/edit.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1343)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2528)
+Completed 200 OK in 11ms (Views: 5.0ms | ActiveRecord: 0.3ms | Allocations: 4751)
+
+
+Started GET "/health_entries" for ::1 at 2026-04-21 15:07:48 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/views/health_entries/index.html.erb:34
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 699)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1867)
+Completed 200 OK in 12ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 5710)
+
+
+Started GET "/health_entries/6/edit" for ::1 at 2026-04-21 15:07:49 +0200
+Processing by HealthEntriesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/edit.html.erb within layouts/application
+  Rendered health_entries/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1343)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2516)
+Completed 200 OK in 10ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 4749)
+
+
+Started GET "/health_entries/6/edit" for ::1 at 2026-04-21 15:07:57 +0200
+Processing by HealthEntriesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/edit.html.erb within layouts/application
+  Rendered health_entries/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1343)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 2515)
+Completed 200 OK in 16ms (Views: 7.3ms | ActiveRecord: 0.7ms | Allocations: 4727)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHealthEntry Load (0.3ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Destroy (1.2ms)[0m  [1m[31mDELETE FROM "health_entries" WHERE "health_entries"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Destroy (0.3ms)[0m  [1m[31mDELETE FROM "health_entries" WHERE "health_entries"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Destroy (0.3ms)[0m  [1m[31mDELETE FROM "health_entries" WHERE "health_entries"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Destroy (0.3ms)[0m  [1m[31mDELETE FROM "health_entries" WHERE "health_entries"."id" = ?[0m  [["id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "demo@healthtrack.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "demo@healthtrack.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2026-04-21 13:12:36.212121"], ["updated_at", "2026-04-21 13:12:36.212121"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 5], ["sleep_hours", 5.5], ["water_litres", 2.3], ["notes", "Great workout"], ["date", "2026-04-21"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.217859"], ["updated_at", "2026-04-21 13:12:36.217859"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-20"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 3], ["energy", 5], ["sleep_hours", 7.3], ["water_litres", 1.4], ["notes", "Feeling good today"], ["date", "2026-04-20"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.219488"], ["updated_at", "2026-04-21 13:12:36.219488"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-19"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 2], ["energy", 4], ["sleep_hours", 6.4], ["water_litres", 2.5], ["notes", "Great workout"], ["date", "2026-04-19"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.220999"], ["updated_at", "2026-04-21 13:12:36.220999"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-18"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 1], ["sleep_hours", 6.4], ["water_litres", 1.6], ["notes", "Tired but productive"], ["date", "2026-04-18"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.222644"], ["updated_at", "2026-04-21 13:12:36.222644"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-17"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 1], ["energy", 4], ["sleep_hours", 6.3], ["water_litres", 3.0], ["notes", "Tired but productive"], ["date", "2026-04-17"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.223990"], ["updated_at", "2026-04-21 13:12:36.223990"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-16"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 2], ["energy", 4], ["sleep_hours", 8.7], ["water_litres", 2.7], ["notes", "Great workout"], ["date", "2026-04-16"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.225336"], ["updated_at", "2026-04-21 13:12:36.225336"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-15"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 5], ["sleep_hours", 5.8], ["water_litres", 1.5], ["notes", "Tough day"], ["date", "2026-04-15"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.226726"], ["updated_at", "2026-04-21 13:12:36.226726"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-14"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 2], ["sleep_hours", 5.9], ["water_litres", 2.3], ["notes", "Feeling good today"], ["date", "2026-04-14"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.232132"], ["updated_at", "2026-04-21 13:12:36.232132"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-13"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 2], ["energy", 1], ["sleep_hours", 7.8], ["water_litres", 1.2], ["notes", "Tired but productive"], ["date", "2026-04-13"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.233557"], ["updated_at", "2026-04-21 13:12:36.233557"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-12"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 2], ["energy", 5], ["sleep_hours", 6.5], ["water_litres", 2.7], ["notes", "Tough day"], ["date", "2026-04-12"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.235180"], ["updated_at", "2026-04-21 13:12:36.235180"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-11"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 2], ["sleep_hours", 6.8], ["water_litres", 1.2], ["notes", ""], ["date", "2026-04-11"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.236516"], ["updated_at", "2026-04-21 13:12:36.236516"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-10"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 2], ["energy", 5], ["sleep_hours", 7.4], ["water_litres", 1.3], ["notes", "Tough day"], ["date", "2026-04-10"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.237987"], ["updated_at", "2026-04-21 13:12:36.237987"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-09"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 1], ["sleep_hours", 7.8], ["water_litres", 2.8], ["notes", ""], ["date", "2026-04-09"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.239311"], ["updated_at", "2026-04-21 13:12:36.239311"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-08"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 3], ["energy", 1], ["sleep_hours", 6.0], ["water_litres", 1.6], ["notes", "Tough day"], ["date", "2026-04-08"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.240850"], ["updated_at", "2026-04-21 13:12:36.240850"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-07"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 1], ["energy", 2], ["sleep_hours", 8.4], ["water_litres", 1.0], ["notes", "Feeling good today"], ["date", "2026-04-07"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.242331"], ["updated_at", "2026-04-21 13:12:36.242331"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-06"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 2], ["sleep_hours", 5.3], ["water_litres", 1.0], ["notes", "Tired but productive"], ["date", "2026-04-06"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.243651"], ["updated_at", "2026-04-21 13:12:36.243651"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-05"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 4], ["sleep_hours", 6.6], ["water_litres", 1.2], ["notes", "Tired but productive"], ["date", "2026-04-05"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.244986"], ["updated_at", "2026-04-21 13:12:36.244986"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-04"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 2], ["energy", 5], ["sleep_hours", 7.6], ["water_litres", 2.8], ["notes", "Great workout"], ["date", "2026-04-04"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.248886"], ["updated_at", "2026-04-21 13:12:36.248886"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-03"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 4], ["sleep_hours", 6.9], ["water_litres", 2.5], ["notes", "Tired but productive"], ["date", "2026-04-03"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.250257"], ["updated_at", "2026-04-21 13:12:36.250257"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-02"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 5], ["sleep_hours", 8.4], ["water_litres", 1.0], ["notes", "Tired but productive"], ["date", "2026-04-02"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.251864"], ["updated_at", "2026-04-21 13:12:36.251864"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-01"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 4], ["sleep_hours", 5.9], ["water_litres", 1.4], ["notes", "Feeling good today"], ["date", "2026-04-01"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.253192"], ["updated_at", "2026-04-21 13:12:36.253192"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-31"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 5], ["sleep_hours", 8.3], ["water_litres", 2.9], ["notes", ""], ["date", "2026-03-31"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.254642"], ["updated_at", "2026-04-21 13:12:36.254642"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-30"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 3], ["sleep_hours", 6.8], ["water_litres", 1.0], ["notes", "Tired but productive"], ["date", "2026-03-30"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.255950"], ["updated_at", "2026-04-21 13:12:36.255950"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-29"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 3], ["energy", 1], ["sleep_hours", 7.7], ["water_litres", 1.2], ["notes", "Tough day"], ["date", "2026-03-29"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.257451"], ["updated_at", "2026-04-21 13:12:36.257451"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-28"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 2], ["sleep_hours", 5.4], ["water_litres", 1.9], ["notes", "Tough day"], ["date", "2026-03-28"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.258765"], ["updated_at", "2026-04-21 13:12:36.258765"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-27"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 4], ["sleep_hours", 8.4], ["water_litres", 1.6], ["notes", "Feeling good today"], ["date", "2026-03-27"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.260065"], ["updated_at", "2026-04-21 13:12:36.260065"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-26"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 1], ["sleep_hours", 8.7], ["water_litres", 2.9], ["notes", ""], ["date", "2026-03-26"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.261383"], ["updated_at", "2026-04-21 13:12:36.261383"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-25"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 1], ["energy", 5], ["sleep_hours", 5.2], ["water_litres", 1.4], ["notes", "Tired but productive"], ["date", "2026-03-25"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.264318"], ["updated_at", "2026-04-21 13:12:36.264318"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-24"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 4], ["energy", 3], ["sleep_hours", 8.3], ["water_litres", 1.2], ["notes", "Tired but productive"], ["date", "2026-03-24"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.265667"], ["updated_at", "2026-04-21 13:12:36.265667"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHealthEntry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-03-23"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Create (0.0ms)[0m  [1m[32mINSERT INTO "health_entries" ("mood", "energy", "sleep_hours", "water_litres", "notes", "date", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["mood", 5], ["energy", 2], ["sleep_hours", 7.4], ["water_litres", 2.7], ["notes", "Great workout"], ["date", "2026-03-23"], ["user_id", 2], ["created_at", "2026-04-21 13:12:36.267248"], ["updated_at", "2026-04-21 13:12:36.267248"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries"[0m
+Started GET "/health_entries" for ::1 at 2026-04-21 15:13:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 34ms (ActiveRecord: 1.3ms | Allocations: 9068)
+
+
+Started GET "/users/sign_in" for ::1 at 2026-04-21 15:13:19 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 576)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3060)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 41897)
+Completed 200 OK in 54ms (Views: 40.4ms | ActiveRecord: 0.0ms | Allocations: 50971)
+
+
+Started POST "/users/sign_in" for ::1 at 2026-04-21 15:13:30 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 26ms (ActiveRecord: 2.6ms | Allocations: 2058)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 113)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 919)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2098)
+Completed 200 OK in 238ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 3173)
+
+
+Started POST "/users/sign_in" for ::1 at 2026-04-21 15:13:59 +0200
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"demo@healthtrack.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "demo@healthtrack.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/health_entries
+Completed 303 See Other in 269ms (ActiveRecord: 0.6ms | Allocations: 8369)
+
+
+Started GET "/health_entries" for ::1 at 2026-04-21 15:14:00 +0200
+Processing by HealthEntriesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.4ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.3ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:34
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 25.9ms | Allocations: 8914)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 10211)
+Completed 200 OK in 51ms (Views: 28.2ms | ActiveRecord: 3.3ms | Allocations: 19553)
+
+
+Started GET "/health_entries/7" for ::1 at 2026-04-21 15:14:49 +0200
+Processing by HealthEntriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.3ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/show.html.erb within layouts/application
+  Rendered health_entries/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 393)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 1570)
+Completed 200 OK in 17ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 4605)
+
+
+Started GET "/health_entries/8" for ::1 at 2026-04-21 15:14:53 +0200
+Processing by HealthEntriesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.2ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/show.html.erb within layouts/application
+  Rendered health_entries/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1302)
+Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 3504)
+
+
+Started GET "/health_entries/8" for ::1 at 2026-04-21 15:14:56 +0200
+Processing by HealthEntriesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/show.html.erb within layouts/application
+  Rendered health_entries/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 128)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1301)
+Completed 200 OK in 10ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 3511)
+
+

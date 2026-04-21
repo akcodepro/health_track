@@ -1,9 +1,26 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Clear existing data
+HealthEntry.destroy_all
+User.destroy_all
+
+# Create a demo user
+user = User.create!(
+  email: "demo@healthtrack.com",
+  password: "password123",
+  password_confirmation: "password123"
+)
+
+# Create 30 days of entries
+30.times do |i|
+  HealthEntry.create!(
+    user: user,
+    date: Date.today - i.days,
+    mood: rand(1..5),
+    energy: rand(1..5),
+    sleep_hours: rand(5.0..9.0).round(1),
+    water_litres: rand(1.0..3.0).round(1),
+    notes: ["Feeling good today", "Tough day", "Great workout", "Tired but productive", ""].sample
+  )
+end
+
+puts "Created demo user: demo@healthtrack.com / password123"
+puts "Created #{HealthEntry.count} health entries"
