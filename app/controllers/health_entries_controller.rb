@@ -7,6 +7,7 @@ class HealthEntriesController < ApplicationController
     @avg_mood = @last_7.average(:mood)&.round(1)
     @avg_energy = @last_7.average(:energy)&.round(1)
     @avg_sleep = @last_7.average(:sleep_hours)&.round(1)
+    @streak = HealthEntry.streak_for(current_user)
   end
 
   def show
