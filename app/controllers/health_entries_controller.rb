@@ -2,7 +2,7 @@ class HealthEntriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @health_entries = current_user.health_entries.order(date: :desc)
+    @health_entries = current_user.health_entries.order(date: :desc).page(params[:page]).per(7)
     @last_7 = current_user.health_entries.where(date: 7.days.ago..Date.today)
     @avg_mood = @last_7.average(:mood)&.round(1)
     @avg_energy = @last_7.average(:energy)&.round(1)

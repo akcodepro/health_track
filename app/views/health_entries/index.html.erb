@@ -41,5 +41,8 @@
       </div>
     </div>
   <% end %>
+    <div>
+    <%= paginate @health_entries %>
+    </div>
   <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
 </div>
