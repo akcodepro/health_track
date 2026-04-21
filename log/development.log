@@ -1792,3 +1792,176 @@ Processing by HealthEntriesController#show as HTML
 Completed 200 OK in 14ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 4609)
 
 
+Started GET "/" for ::1 at 2026-04-21 10:00:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/views/health_entries/index.html.erb:29
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 7532)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 46472)
+Completed 200 OK in 69ms (Views: 36.8ms | ActiveRecord: 1.6ms | Allocations: 70435)
+
+
+Started GET "/health_entries/new" for ::1 at 2026-04-21 10:00:25 +0200
+Processing by HealthEntriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2967)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4143)
+Completed 200 OK in 18ms (Views: 11.9ms | ActiveRecord: 0.3ms | Allocations: 6132)
+
+
+Started POST "/health_entries" for ::1 at 2026-04-21 10:00:50 +0200
+Processing by HealthEntriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "health_entry"=>{"mood"=>"4", "energy"=>"2.5", "sleep_hours"=>"1", "water_litres"=>"4", "notes"=>"really", "date"=>"2026-04-21"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mHealthEntry Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2774)
+Completed 422 Unprocessable Content in 14ms (Views: 4.5ms | ActiveRecord: 1.4ms | Allocations: 8090)
+
+
+Started POST "/health_entries" for ::1 at 2026-04-21 10:00:52 +0200
+Processing by HealthEntriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "health_entry"=>{"mood"=>"4", "energy"=>"2.5", "sleep_hours"=>"1", "water_litres"=>"4", "notes"=>"really", "date"=>"2026-04-21"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mHealthEntry Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1522)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2701)
+Completed 422 Unprocessable Content in 10ms (Views: 3.6ms | ActiveRecord: 1.0ms | Allocations: 7131)
+
+
+Started POST "/health_entries" for ::1 at 2026-04-21 10:00:54 +0200
+Processing by HealthEntriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "health_entry"=>{"mood"=>"4", "energy"=>"2.5", "sleep_hours"=>"1", "water_litres"=>"4", "notes"=>"really", "date"=>"2026-04-21"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mHealthEntry Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1518)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 2685)
+Completed 422 Unprocessable Content in 16ms (Views: 4.6ms | ActiveRecord: 2.2ms | Allocations: 7094)
+
+
+Started GET "/health_entries/new" for ::1 at 2026-04-21 10:02:08 +0200
+Processing by HealthEntriesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1291)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 2468)
+Completed 200 OK in 20ms (Views: 8.7ms | ActiveRecord: 0.4ms | Allocations: 4336)
+
+
+Started POST "/health_entries" for ::1 at 2026-04-21 10:02:11 +0200
+Processing by HealthEntriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "health_entry"=>{"mood"=>"", "energy"=>"", "sleep_hours"=>"", "water_litres"=>"", "notes"=>"", "date"=>"2026-04-21"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mHealthEntry Exists? (6.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 5415)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 6578)
+Completed 422 Unprocessable Content in 58ms (Views: 14.3ms | ActiveRecord: 6.7ms | Allocations: 12592)
+
+
+Started GET "/" for ::1 at 2026-04-21 10:02:13 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.0ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/views/health_entries/index.html.erb:29
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 675)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1851)
+Completed 200 OK in 12ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 5224)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 1], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2026-04-21 10:07:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.2ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 1], ["date", "2026-04-14"], ["date", "2026-04-21"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.4ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 1]]
+  ↳ app/views/health_entries/index.html.erb:29
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 7532)
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 46467)
+Completed 200 OK in 55ms (Views: 31.9ms | ActiveRecord: 1.4ms | Allocations: 70359)
+
+
+Started GET "/health_entries/new" for ::1 at 2026-04-21 10:07:02 +0200
+Processing by HealthEntriesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 3064)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4240)
+Completed 200 OK in 19ms (Views: 12.2ms | ActiveRecord: 0.4ms | Allocations: 6213)
+
+
+Started POST "/health_entries" for ::1 at 2026-04-21 10:07:05 +0200
+Processing by HealthEntriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "health_entry"=>{"mood"=>"", "energy"=>"", "sleep_hours"=>"", "water_litres"=>"", "notes"=>"", "date"=>"2026-04-21"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mHealthEntry Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "health_entries" WHERE "health_entries"."date" = ? AND "health_entries"."user_id" = ? LIMIT ?[0m  [["date", "2026-04-21"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/health_entries_controller.rb:28:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 8123)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 9286)
+Completed 422 Unprocessable Content in 20ms (Views: 9.0ms | ActiveRecord: 1.7ms | Allocations: 16174)
+
+
