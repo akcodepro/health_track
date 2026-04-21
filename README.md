@@ -1,24 +1,39 @@
-# README
+# 💚 HealthTrack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A personal health journaling app built with Ruby on Rails.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- Daily health entries tracking mood, energy, sleep and water intake
+- Weekly average stats dashboard
+- Consecutive day streak counter
+- Colour-coded entries by mood
+- User authentication with Devise
+- Per-user data — each user only sees their own entries
 
-* System dependencies
+## Setup
 
-* Configuration
+1. Clone the repo
+git clone https://github.com/akcodepro/health_track.git
+cd health_track
 
-* Database creation
+2. Install dependencies
+bundle install
 
-* Database initialization
+3. Set up the database
+rails db:migrate
+rails db:seed
 
-* How to run the test suite
+4. Start the server
+rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+5. Visit `http://localhost:3000` and log in with:
+  - Email: `demo@healthtrack.com`
+  - Password: `password123`
 
-* Deployment instructions
+## Built With
 
-* ...
+- Ruby on Rails 7
+- Bootstrap 5
+- Devise
+- SQLite
