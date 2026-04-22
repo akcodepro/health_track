@@ -4209,3 +4209,316 @@ Processing by HealthEntriesController#index as HTML
 Completed 200 OK in 18ms (Views: 7.6ms | ActiveRecord: 0.9ms | Allocations: 9959)
 
 
+Started GET "/" for ::1 at 2026-04-22 10:30:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.2ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:42
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:53
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 12899)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 57862)
+Completed 200 OK in 68ms (Views: 40.7ms | ActiveRecord: 1.6ms | Allocations: 84385)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:31:22 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:43
+  [1m[36mHealthEntry Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:54
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 9751)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 33348)
+Completed 200 OK in 33ms (Views: 20.9ms | ActiveRecord: 2.0ms | Allocations: 47311)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:31:36 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:44
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:55
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 9745)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 33340)
+Completed 200 OK in 41ms (Views: 31.8ms | ActiveRecord: 1.6ms | Allocations: 47335)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:33:55 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.4ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:44
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:55
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 9765)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 33360)
+Completed 200 OK in 44ms (Views: 19.2ms | ActiveRecord: 9.0ms | Allocations: 47339)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:35:39 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:44
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:55
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 9745)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 33343)
+Completed 200 OK in 40ms (Views: 21.3ms | ActiveRecord: 5.1ms | Allocations: 47270)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:41:19 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.4ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:52
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:63
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 9884)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 33455)
+Completed 200 OK in 40ms (Views: 23.0ms | ActiveRecord: 7.9ms | Allocations: 46489)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:42:10 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:52
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:63
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 9961)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 33460)
+Completed 200 OK in 28ms (Views: 15.2ms | ActiveRecord: 2.7ms | Allocations: 47421)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:42:27 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:52
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:63
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 10049)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 33635)
+Completed 200 OK in 25ms (Views: 14.3ms | ActiveRecord: 1.7ms | Allocations: 47643)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:42:47 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.2ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:42
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:53
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 9693)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 33290)
+Completed 200 OK in 33ms (Views: 16.8ms | ActiveRecord: 4.8ms | Allocations: 47226)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:43:07 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:42
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:53
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 9698)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 33296)
+Completed 200 OK in 25ms (Views: 13.6ms | ActiveRecord: 1.8ms | Allocations: 47261)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:45:09 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:42
+  [1m[36mHealthEntry Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:53
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 9712)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 33311)
+Completed 200 OK in 25ms (Views: 14.5ms | ActiveRecord: 1.9ms | Allocations: 47263)
+
+
+Started GET "/" for ::1 at 2026-04-22 10:46:19 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.5ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.2ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:42
+  [1m[36mHealthEntry Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:53
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 3099)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 5070)
+Completed 200 OK in 55ms (Views: 21.3ms | ActiveRecord: 6.1ms | Allocations: 10753)
+
+

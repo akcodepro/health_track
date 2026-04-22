@@ -32,7 +32,11 @@
   </div>
 
   <div class="card mb-4 p-3" >
-    <%= line_chart @chart_data, height: "200px", colors: ["#198754"] %>
+  <h5>Mood & Energy</h5>
+    <%= line_chart [
+  {name: "Mood", data: @chart_data_mood},
+  {name: "Energy", data: @chart_data_energy}
+], colors: ["#4CAF50", "#FF9800"] %>
   </div>
 
   <% @health_entries.each do |entry|  %>
