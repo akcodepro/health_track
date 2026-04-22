@@ -34,12 +34,12 @@
   <div class="card mb-4 p-3" >
   <h5>Mood & Energy</h5>
     <%= line_chart [
-  {name: "Mood", data: @chart_data_mood},
-  {name: "Energy", data: @chart_data_energy}
-], colors: ["#4CAF50", "#FF9800"] %>
+          { name: "Mood", data: @chart_data_mood },
+          { name: "Energy", data: @chart_data_energy },
+        ], colors: ["#4CAF50", "#FF9800"] %>
   </div>
 
-  <% @health_entries.each do |entry|  %>
+  <% @health_entries.each do |entry| %>
     <div class="card mb-2 border-<%= mood_colour(entry.mood) %>">
       <div class="card-body">
         <h5><%= link_to entry.date, entry %></h5>
@@ -50,7 +50,8 @@
     </div>
   <% end %>
     <div>
-    <%= paginate @health_entries %>
+      <%= paginate @health_entries %>
     </div>
-  <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
-</div>
+      <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
+      <%= link_to "Export CSV", export_health_entries_path(format: :csv), class: "btn btn-success mt-3" %>
+  </div>

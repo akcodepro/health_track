@@ -51,9 +51,31 @@ class HealthEntriesController < ApplicationController
     redirect_to health_entries_path
   end
 
+  def export
+    @health_entries = current_user.health_entries.order(date: :desc)
+
+    respond_to do |format|
+      format.csv do
+        send_data generate_csv(@health_entries),
+          filename: "health_entries_#{Date.today}.csv",
+          type: "text/csv"
+      end
+    end
+  end
+
 
   private
   def health_entry_params
     params.require(:health_entry).permit(:mood, :energy, :sleep_hours, :water_litres, :notes, :date, :user_id)
+  end
+
+  def generate_csv(entries)
+    require 'csv'
+    CSV.generate(headers: true) do |csv|
+      csv << ["Date", "Mood", "Energy", "Sleep Hours", "Water Litres", "Notes"]
+      entries.each do |entry|
+        csv << [entry.date, entry.mood, entry.energy, entry.sleep_hours, entry.water_litres, entry.notes]
+      end
+    end
   end
 end
