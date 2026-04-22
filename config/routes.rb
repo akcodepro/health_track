@@ -6,4 +6,9 @@ Rails.application.routes.draw do
       get :export
     end
   end
+  namespace :api do
+    namespace :v1 do
+      resources :health_entries, only: [:index]
+    end
+  end
 end
