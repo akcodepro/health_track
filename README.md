@@ -10,26 +10,28 @@ A personal health journaling app built with Ruby on Rails.
 - Colour-coded entries by mood
 - User authentication with Devise
 - Per-user data — each user only sees their own entries
+- add API and CSV export to the features list
 
 ## Setup
 
 1. Clone the repo
-git clone https://github.com/akcodepro/health_track.git
-cd health_track
+   git clone https://github.com/akcodepro/health_track.git
+   cd health_track
 
 2. Install dependencies
-bundle install
+   bundle install
 
 3. Set up the database
-rails db:migrate
-rails db:seed
+   rails db:migrate
+   rails db:seed
 
 4. Start the server
-rails server
+   rails server
 
 5. Visit `http://localhost:3000` and log in with:
-  - Email: `demo@healthtrack.com`
-  - Password: `password123`
+
+- Email: `demo@healthtrack.com`
+- Password: `password123`
 
 ## Built With
 

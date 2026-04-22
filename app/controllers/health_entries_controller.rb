@@ -10,6 +10,7 @@ class HealthEntriesController < ApplicationController
     @streak = HealthEntry.streak_for(current_user)
     @chart_data_mood = current_user.health_entries.order(date: :asc).pluck(:date, :mood).to_h
     @chart_data_energy = current_user.health_entries.order(date: :asc).pluck(:date, :energy).to_h
+    @today_entry = current_user.health_entries.find_by(date: Date.today)
   end
 
   def show

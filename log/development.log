@@ -5008,3 +5008,418 @@ Processing by Api::V1::HealthEntriesController#index as HTML
 Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 0.4ms | Allocations: 5072)
 
 
+Started GET "/api/v1/health_entries" for ::1 at 2026-04-22 16:04:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.6ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/health_entries_controller.rb:8:in `index'
+Completed 200 OK in 584ms (Views: 37.3ms | ActiveRecord: 13.8ms | Allocations: 28240)
+
+
+Started GET "/api/v1/health_entries" for ::1 at 2026-04-22 16:04:55 +0200
+Processing by Api::V1::HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/controllers/api/v1/health_entries_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 3.0ms | ActiveRecord: 0.2ms | Allocations: 4842)
+
+
+Started GET "/" for ::1 at 2026-04-22 16:04:57 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.8ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.2ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:43
+  [1m[36mHealthEntry Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:54
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 6624)
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 51568)
+Completed 200 OK in 79ms (Views: 59.6ms | ActiveRecord: 1.5ms | Allocations: 61123)
+
+
+Started GET "/" for ::1 at 2026-04-22 16:13:38 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.1ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  [1m[36mHealthEntry Load (0.0ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" = ? LIMIT ?[0m  [["user_id", 2], ["date", "2026-04-22"], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1817)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1919)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 5.1ms | Allocations: 15574)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="container mt-4">
+  <h1>HealthEntries</h1>
+  <%= if @today_entry.nil? %>
+    <div class="alert alert-warning mt-2" >
+      📋 You haven't logged today yet — <%= link_to "Add today's entry", new_health_entry_path %>
+    </div>
+  <% else %>
+    <div class="alert alert-success mt-2" >
+      ✅ Today's entry logged!
+    </div>
+  <% end %>
+  <p class="lead">🔥 Current streak: <%= @streak %> day<%= @streak == 1 ? "" : "s" %></p>
+
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Avg Mood</h5>
+          <p class="card-text fs-3"><%= @avg_mood || "N/A" %>/5</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Avg Energy</h5>
+          <p class="card-text fs-3"><%= @avg_energy || "N/A" %>/5</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Avg Sleep</h5>
+          <p class="card-text fs-3"><%= @avg_sleep || "N/A" %> hrs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4 p-3" >
+  <h5>Mood & Energy</h5>
+    <%= line_chart [
+                     { name: "Mood", data: @chart_data_mood },
+                     { name: "Energy", data: @chart_data_energy },
+                   ], colors: ["#4CAF50", "#FF9800"] %>
+  </div>
+
+  <% @health_entries.each do |entry| %>
+    <div class="card mb-2 border-<%= mood_colour(entry.mood) %>">
+      <div class="card-body">
+        <h5><%= link_to entry.date, entry %></h5>
+        <p class="mb-1">Mood: <%= entry.mood %>/5</p>
+        <p class="mb-1">Energy: <%= entry.energy %>/5</p>
+        <p class="mb-0">Sleep: <%= entry.sleep_hours %> hr</p>
+      </div>
+    </div>
+  <% end %>
+    <div>
+      <%= paginate @health_entries %>
+    </div>
+      <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
+      <%= link_to "Export CSV", export_health_entries_path(format: :csv), class: "btn btn-success mt-3" %>
+  </div>
+
+):
+1:    <div class="container mt-4">
+2:      <h1>HealthEntries</h1>
+3:      <%= if @today_entry.nil? %>
+4:        <div class="alert alert-warning mt-2" >
+5:          📋 You haven't logged today yet — <%= link_to "Add today's entry", new_health_entry_path %>
+6:        </div>
+7:      <% else %>
+8:        <div class="alert alert-success mt-2" >
+9:          ✅ Today's entry logged!
+10:        </div>
+11:      <% end %>
+12:      <p class="lead">🔥 Current streak: <%= @streak %> day<%= @streak == 1 ? "" : "s" %></p>
+13:    
+14:      <div class="row mb-4">
+15:        <div class="col-md-4">
+16:          <div class="card text-center">
+17:            <div class="card-body">
+18:              <h5 class="card-title">Avg Mood</h5>
+19:              <p class="card-text fs-3"><%= @avg_mood || "N/A" %>/5</p>
+20:            </div>
+21:          </div>
+22:        </div>
+23:    
+24:        <div class="col-md-4">
+25:          <div class="card text-center">
+26:            <div class="card-body">
+27:              <h5 class="card-title">Avg Energy</h5>
+28:              <p class="card-text fs-3"><%= @avg_energy || "N/A" %>/5</p>
+29:            </div>
+30:          </div>
+31:        </div>
+32:    
+33:        <div class="col-md-4">
+34:          <div class="card text-center">
+35:            <div class="card-body">
+36:              <h5 class="card-title">Avg Sleep</h5>
+37:              <p class="card-text fs-3"><%= @avg_sleep || "N/A" %> hrs</p>
+38:            </div>
+39:          </div>
+40:        </div>
+41:      </div>
+42:    
+43:      <div class="card mb-4 p-3" >
+44:      <h5>Mood & Energy</h5>
+45:        <%= line_chart [
+46:                         { name: "Mood", data: @chart_data_mood },
+47:                         { name: "Energy", data: @chart_data_energy },
+48:                       ], colors: ["#4CAF50", "#FF9800"] %>
+49:      </div>
+50:    
+51:      <% @health_entries.each do |entry| %>
+52:        <div class="card mb-2 border-<%= mood_colour(entry.mood) %>">
+53:          <div class="card-body">
+54:            <h5><%= link_to entry.date, entry %></h5>
+55:            <p class="mb-1">Mood: <%= entry.mood %>/5</p>
+56:            <p class="mb-1">Energy: <%= entry.energy %>/5</p>
+57:            <p class="mb-0">Sleep: <%= entry.sleep_hours %> hr</p>
+58:          </div>
+59:        </div>
+60:      <% end %>
+61:        <div>
+62:          <%= paginate @health_entries %>
+63:        </div>
+64:          <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
+65:          <%= link_to "Export CSV", export_health_entries_path(format: :csv), class: "btn btn-success mt-3" %>
+66:      </div>
+  
+app/views/health_entries/index.html.erb:3: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/health_entries/index.html.erb:69: syntax error, unexpected `end', expecting ')'
+Started GET "/" for ::1 at 2026-04-22 16:14:22 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  [1m[36mHealthEntry Load (0.0ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" = ? LIMIT ?[0m  [["user_id", 2], ["date", "2026-04-22"], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1441)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1543)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 3.0ms | Allocations: 16103)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="container mt-4">
+  <h1>HealthEntries</h1>
+  <%= if @today_entry.nil? %>
+    <div class="alert alert-warning mt-2" >
+      <p>📋 You haven't logged today yet — <%= link_to "Add today's entry", new_health_entry_path %></p>
+    </div>
+  <% else %>
+    <div class="alert alert-success mt-2" >
+      <p>✅ Today's entry logged!</p>
+    </div>
+  <% end %>
+  <p class="lead">🔥 Current streak: <%= @streak %> day<%= @streak == 1 ? "" : "s" %></p>
+
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Avg Mood</h5>
+          <p class="card-text fs-3"><%= @avg_mood || "N/A" %>/5</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Avg Energy</h5>
+          <p class="card-text fs-3"><%= @avg_energy || "N/A" %>/5</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Avg Sleep</h5>
+          <p class="card-text fs-3"><%= @avg_sleep || "N/A" %> hrs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4 p-3" >
+  <h5>Mood & Energy</h5>
+    <%= line_chart [
+                     { name: "Mood", data: @chart_data_mood },
+                     { name: "Energy", data: @chart_data_energy },
+                   ], colors: ["#4CAF50", "#FF9800"] %>
+  </div>
+
+  <% @health_entries.each do |entry| %>
+    <div class="card mb-2 border-<%= mood_colour(entry.mood) %>">
+      <div class="card-body">
+        <h5><%= link_to entry.date, entry %></h5>
+        <p class="mb-1">Mood: <%= entry.mood %>/5</p>
+        <p class="mb-1">Energy: <%= entry.energy %>/5</p>
+        <p class="mb-0">Sleep: <%= entry.sleep_hours %> hr</p>
+      </div>
+    </div>
+  <% end %>
+    <div>
+      <%= paginate @health_entries %>
+    </div>
+      <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
+      <%= link_to "Export CSV", export_health_entries_path(format: :csv), class: "btn btn-success mt-3" %>
+  </div>
+
+):
+1:    <div class="container mt-4">
+2:      <h1>HealthEntries</h1>
+3:      <%= if @today_entry.nil? %>
+4:        <div class="alert alert-warning mt-2" >
+5:          <p>📋 You haven't logged today yet — <%= link_to "Add today's entry", new_health_entry_path %></p>
+6:        </div>
+7:      <% else %>
+8:        <div class="alert alert-success mt-2" >
+9:          <p>✅ Today's entry logged!</p>
+10:        </div>
+11:      <% end %>
+12:      <p class="lead">🔥 Current streak: <%= @streak %> day<%= @streak == 1 ? "" : "s" %></p>
+13:    
+14:      <div class="row mb-4">
+15:        <div class="col-md-4">
+16:          <div class="card text-center">
+17:            <div class="card-body">
+18:              <h5 class="card-title">Avg Mood</h5>
+19:              <p class="card-text fs-3"><%= @avg_mood || "N/A" %>/5</p>
+20:            </div>
+21:          </div>
+22:        </div>
+23:    
+24:        <div class="col-md-4">
+25:          <div class="card text-center">
+26:            <div class="card-body">
+27:              <h5 class="card-title">Avg Energy</h5>
+28:              <p class="card-text fs-3"><%= @avg_energy || "N/A" %>/5</p>
+29:            </div>
+30:          </div>
+31:        </div>
+32:    
+33:        <div class="col-md-4">
+34:          <div class="card text-center">
+35:            <div class="card-body">
+36:              <h5 class="card-title">Avg Sleep</h5>
+37:              <p class="card-text fs-3"><%= @avg_sleep || "N/A" %> hrs</p>
+38:            </div>
+39:          </div>
+40:        </div>
+41:      </div>
+42:    
+43:      <div class="card mb-4 p-3" >
+44:      <h5>Mood & Energy</h5>
+45:        <%= line_chart [
+46:                         { name: "Mood", data: @chart_data_mood },
+47:                         { name: "Energy", data: @chart_data_energy },
+48:                       ], colors: ["#4CAF50", "#FF9800"] %>
+49:      </div>
+50:    
+51:      <% @health_entries.each do |entry| %>
+52:        <div class="card mb-2 border-<%= mood_colour(entry.mood) %>">
+53:          <div class="card-body">
+54:            <h5><%= link_to entry.date, entry %></h5>
+55:            <p class="mb-1">Mood: <%= entry.mood %>/5</p>
+56:            <p class="mb-1">Energy: <%= entry.energy %>/5</p>
+57:            <p class="mb-0">Sleep: <%= entry.sleep_hours %> hr</p>
+58:          </div>
+59:        </div>
+60:      <% end %>
+61:        <div>
+62:          <%= paginate @health_entries %>
+63:        </div>
+64:          <%= link_to "Add new entry", new_health_entry_path, class: "btn btn-primary mt-3" %>
+65:          <%= link_to "Export CSV", export_health_entries_path(format: :csv), class: "btn btn-success mt-3" %>
+66:      </div>
+  
+app/views/health_entries/index.html.erb:3: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/health_entries/index.html.erb:69: syntax error, unexpected `end', expecting ')'
+Started GET "/" for ::1 at 2026-04-22 16:16:01 +0200
+Processing by HealthEntriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHealthEntry Average (0.1ms)[0m  [1m[34mSELECT AVG("health_entries"."mood") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:7:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."energy") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:8:in `index'
+  [1m[36mHealthEntry Average (0.0ms)[0m  [1m[34mSELECT AVG("health_entries"."sleep_hours") FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" BETWEEN ? AND ?[0m  [["user_id", 2], ["date", "2026-04-15"], ["date", "2026-04-22"]]
+  ↳ app/controllers/health_entries_controller.rb:9:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC[0m  [["user_id", 2]]
+  ↳ app/models/health_entry.rb:11:in `streak_for'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."mood" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:11:in `index'
+  [1m[36mHealthEntry Pluck (0.0ms)[0m  [1m[34mSELECT "health_entries"."date", "health_entries"."energy" FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" ASC[0m  [["user_id", 2]]
+  ↳ app/controllers/health_entries_controller.rb:12:in `index'
+  [1m[36mHealthEntry Load (0.0ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? AND "health_entries"."date" = ? LIMIT ?[0m  [["user_id", 2], ["date", "2026-04-22"], ["LIMIT", 1]]
+  ↳ app/controllers/health_entries_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/index.html.erb within layouts/application
+  [1m[36mHealthEntry Load (0.1ms)[0m  [1m[34mSELECT "health_entries".* FROM "health_entries" WHERE "health_entries"."user_id" = ? ORDER BY "health_entries"."date" DESC LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/health_entries/index.html.erb:51
+  [1m[36mHealthEntry Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "health_entries" WHERE "health_entries"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/health_entries/index.html.erb:62
+  Rendered health_entries/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 9850)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 33562)
+Completed 200 OK in 31ms (Views: 18.2ms | ActiveRecord: 1.7ms | Allocations: 48098)
+
+
+Started GET "/health_entries/new" for ::1 at 2026-04-22 16:16:12 +0200
+Processing by HealthEntriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2957)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 4940)
+Completed 200 OK in 18ms (Views: 12.8ms | ActiveRecord: 0.3ms | Allocations: 6941)
+
+
+Started GET "/health_entries/new" for ::1 at 2026-04-22 16:16:19 +0200
+Processing by HealthEntriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering health_entries/new.html.erb within layouts/application
+  Rendered health_entries/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1300)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3310)
+Completed 200 OK in 16ms (Views: 11.1ms | ActiveRecord: 0.3ms | Allocations: 5187)
+
+

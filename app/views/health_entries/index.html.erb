@@ -1,5 +1,14 @@
 <div class="container mt-4">
   <h1>HealthEntries</h1>
+<% if @today_entry.nil? %>
+  <div class="alert alert-warning mt-2">
+    📋 You haven't logged today yet — <%= link_to "Add today's entry", new_health_entry_path %>
+  </div>
+<% else %>
+  <div class="alert alert-success mt-2">
+    ✅ Today's entry logged!
+  </div>
+<% end %>
   <p class="lead">🔥 Current streak: <%= @streak %> day<%= @streak == 1 ? "" : "s" %></p>
 
   <div class="row mb-4">
@@ -34,9 +43,9 @@
   <div class="card mb-4 p-3" >
   <h5>Mood & Energy</h5>
     <%= line_chart [
-          { name: "Mood", data: @chart_data_mood },
-          { name: "Energy", data: @chart_data_energy },
-        ], colors: ["#4CAF50", "#FF9800"] %>
+                     { name: "Mood", data: @chart_data_mood },
+                     { name: "Energy", data: @chart_data_energy },
+                   ], colors: ["#4CAF50", "#FF9800"] %>
   </div>
 
   <% @health_entries.each do |entry| %>
