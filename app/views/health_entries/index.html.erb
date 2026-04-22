@@ -31,6 +31,10 @@
     </div>
   </div>
 
+  <div class="card mb-4 p-3" >
+    <%= line_chart @chart_data, height: "200px", colors: ["#198754"] %>
+  </div>
+
   <% @health_entries.each do |entry|  %>
     <div class="card mb-2 border-<%= mood_colour(entry.mood) %>">
       <div class="card-body">

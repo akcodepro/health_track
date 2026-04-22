@@ -8,6 +8,7 @@ class HealthEntriesController < ApplicationController
     @avg_energy = @last_7.average(:energy)&.round(1)
     @avg_sleep = @last_7.average(:sleep_hours)&.round(1)
     @streak = HealthEntry.streak_for(current_user)
+    @chart_data = current_user.health_entries.order(date: :asc).pluck(:date, :mood).to_h
   end
 
   def show

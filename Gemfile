@@ -68,3 +68,5 @@ end
 
 gem 'devise'
 gem 'kaminari'
+gem 'chartkick'
+gem 'groupdate'
